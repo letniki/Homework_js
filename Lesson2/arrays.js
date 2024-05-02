@@ -146,7 +146,7 @@ let users=[
     }
 ]
 console.log(users[0].password);
-console.log(users[1][2]);
+console.log(users[1].password);
 console.log(users[2].password);
 console.log(users[3].password);
 console.log(users[4].password);
