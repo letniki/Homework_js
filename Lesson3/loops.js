@@ -109,8 +109,7 @@ document.write(`<h2>Користувачі зі статусом false:</h2>`);
 
 for (let user of users) {
     if(user.status===false){
-        document.write(`<p>${user.name} ${user.age}
-        </p>`);
+        document.write(`<p>${user.name} ${user.age}</p>`);
     }
 }
 
