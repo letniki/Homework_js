@@ -6,12 +6,12 @@ document.write(`<div style="margin-top: 1vh">Lorem ipsum dolor sit amet.</divsty
 
 //- За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 
-for (let i=0; i < 10; i++){
-    document.write(`<div style="margin-top: 1vh">id=${i+1} Hello World</div>`);
+for (let i=1; i <= 10; i++){
+    document.write(`<div style="margin-top: 1vh">id=${i} Hello World</div>`);
 }
-//можливо треба було вивести як id={i}, але тоді б індекси починались з 0
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
+
 let iFirst = 0;
 while (iFirst<20){
     document.write(`<h1>Hi, how are you?</h1>`);
@@ -20,28 +20,27 @@ while (iFirst<20){
 
 //- За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
 
-let iSecond=0;
-while(iSecond<20){
-    document.write(`<h1>id=${iSecond+1} Lorem ipsum dolor.</h1>`);
-
+let iSecond=1;
+while(iSecond<=20){
+    document.write(`<h1>id=${iSecond} Lorem ipsum dolor.</h1>`);
 iSecond++;
 }
 
 //- Використовуючи данні з масиву, за допомоги document.write та циклу
 // побудувати структуру по шаблону
 let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
-document.write(`<ul></ul>`);
+document.write(`<ul>`);
 for (let item of listOfItems) {
     document.write(`<li>${item}</li>`);
 }
-
+document.write(`</ul>`);
 // Або такий варіант
 
-document.write(`<ul></ul>`);
+document.write(`<ul>`)
 for(let i=0; i<listOfItems.length; i++){
     document.write(`<li style="color:blue">${listOfItems[i]}</li>`);
 }
-
+document.write(`</ul>`);
 
 // Використовуючи данні з масиву, за допомоги document.write та циклу
 // побудувати структуру по шаблону
@@ -71,7 +70,7 @@ let products = [
 ];
 for (let product of products) {
     document.write(`<div class="product-card">
-        <h3 class="product-title">${product["title"]}. Price- ${product["price"]} UAH</h3>
+        <h3 class="product-title">${product["title"]}. Price - ${product["price"]} UAH</h3>
         <img src="${product.image}" alt="" class="product-image" style="width: 350px"/>
     </div>`);
 }
@@ -94,7 +93,7 @@ let users = [
     {name: 'olya', age: 31, status: false},
     {name: 'max', age: 31, status: true}
 ];
-document.write(`<h2>Користувачі зі статусом true:</h2>`)
+document.write(`<h2>Користувачі зі статусом true:</h2>`);
   for(let i = 0; i<users.length; i++){
       if(users[i].status===true){
           let user=users[i];
