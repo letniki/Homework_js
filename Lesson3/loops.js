@@ -6,8 +6,8 @@ document.write(`<div style="margin-top: 1vh">Lorem ipsum dolor sit amet.</divsty
 
 //- За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 
-for (let i=1; i <= 10; i++){
-    document.write(`<div style="margin-top: 1vh">id=${i} Hello World</div>`);
+for (let i=0; i < 10; i++){
+    document.write(`<div style="margin-top: 1vh">id=${i+1} Hello World</div>`);
 }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
