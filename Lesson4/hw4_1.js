@@ -177,11 +177,12 @@ function minOfArray(arr) {
                  result=min;
             }
         }else{
-            result=`не можливо порівняти числа`; // або можна було не створювати змінну result і присвоїти це значення для min
+            result=`не можливо порівняти числа`;
+            break// або можна було не створювати змінну result і присвоїти це значення для min
         }
     }document.write(`${result}`); //тоді тут замість result виводилося б min
 }
-let num=[1,"",-3,4,5];
+let num=[1,2,-3,4,5];
 minOfArray(num);
 
 // Другий варіант без змінної result
@@ -204,11 +205,21 @@ minOfArr(num);
 
 function sum(arr){
     let result=0;
+    // let i=0
+    // while(i<arr.length && typeof result!=='string'){
+    //     if (typeof arr[i] === 'number') {
+    //                 result =result+arr[i];
+    //             } else {
+    //                 result = 'не можливо порахувати суму';
+    //             }
+    //     i++
+    // }
     for (let element of arr) {
         if (typeof element === 'number') {
             result +=element;
         } else {
             result = 'не можливо порахувати суму';
+            break
         }
     }
     document.write(`<p> ${result}</p>`);
