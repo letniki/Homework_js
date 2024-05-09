@@ -220,7 +220,7 @@ function exchange(sumUAH, currencyValues, exchangeCurrency){
      if (typeof sumUAH==='number' && sumUAH >= 0 && typeof exchangeCurrency==='string'){
          for (const element of currencyValues) {
              if ( element.currency===exchangeCurrency){
-                 return sumUAH * element.value;
+                 return sumUAH / element.value;
              }
          }
      }else{
@@ -232,4 +232,4 @@ let currencyValues=[
     {currency: 'EUR',value: 42},
     {currency: 'GBP', value: 50}
 ]
-console.log(exchange(1000,currencyValues,'EUR'));
+console.log(exchange(20000,currencyValues,'EUR'));
