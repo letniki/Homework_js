@@ -73,7 +73,7 @@ function printerArray(arr){
         console.log(item);
     }
 }
-let numbers=[1,2,3,4,5,6,7,8,9,10]
+let numbers=[1,2,3,4,5,6,7,8,9,10];
 printerArray(numbers);
 
 // створити функцію яка створює параграф з текстом. Текст задати через аргумент
@@ -96,7 +96,7 @@ writer('hello', 'hi');
 function pCreator(){
         document.write(`<p>${arguments[0]}</p>`);
 }
-pCreator('some text');
+pCreator('lorem');
 // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
 
 function listWriter(){
@@ -122,7 +122,7 @@ liWriter('12345');
 
 function list(){
     document.write(`<ul>`);
-    for (let i = arguments[1]; i >= 0; i--) {
+    for (let i = arguments[1]; i > 0; i--) {
         document.write(`<li>${arguments[0]}</li>`);
     }
     document.write(`</ul>`);
@@ -144,11 +144,13 @@ listFromArray(arr);
 //- створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
 
 function BlockArr(arr){
-    document.write(`<div>`)
     for (const element of arr) {
-        document.write(`<div style="display: flex">Id: ${element.id} Name: ${element.name} ${element.age} y.o.</div>`);
+        document.write(`<div>`)
+        for (const key in element) {
+            document.write(`<p>${key}: ${element[key]}</p>`);
+        }
+        document.write(`</div>`);
     }
-    document.write(`</div>`);
 }
 let users = [
     {name: 'vasya', age: 31, id: 1},
@@ -167,53 +169,21 @@ BlockArr(users);
 
 // - створити функцію яка повертає найменьше число з масиву
 
-function minOfArray(arr) {
-        let min = arr[0];
-        let result=0;
-    for (let element of arr) {
-        if (typeof element==='number'){
-            if (element < min) {
-                min= element;
-                 result=min;
-            }
-        }else{
-            result=`не можливо порівняти числа`;
-            break// або можна було не створювати змінну result і присвоїти це значення для min
-        }
-    }document.write(`${result}`); //тоді тут замість result виводилося б min
-}
-let num=[1,2,-3,4,5];
-minOfArray(num);
-
-// Другий варіант без змінної result
-
 function minOfArr(arr) {
     let min = arr[0];
     for (let element of arr) {
-        if (typeof element==='number'){
-            if (element < min) {
-                min= element;
-            }
-        }else{
-            min='не можливо порівняти числа';
+        if (element < min) {
+            min= element;
         }
-    }document.write(`<p>${min}</p>`);
+    }return min;
 }
-minOfArr(num);
+let num=[1,2,-3,4,5];
+console.log(minOfArr(num));
 
 // створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
 
 function sum(arr){
     let result=0;
-    // let i=0
-    // while(i<arr.length && typeof result!=='string'){
-    //     if (typeof arr[i] === 'number') {
-    //                 result =result+arr[i];
-    //             } else {
-    //                 result = 'не можливо порахувати суму';
-    //             }
-    //     i++
-    // }
     for (let element of arr) {
         if (typeof element === 'number') {
             result +=element;
@@ -222,7 +192,44 @@ function sum(arr){
             break
         }
     }
-    document.write(`<p> ${result}</p>`);
+    return result;
 }
 let nums=[1,2,3,4,5];
-sum(nums);
+console.log(sum(nums));
+
+//створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+// Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+
+function swapper(arr,index1,index2){
+    if(index1 >= 0 && index1 < arr.length && index2 >= 0 && index2 < arr.length && index1 !== index2){
+        let swap=arr[index1];
+        arr[index1]=arr[index2];
+        arr[index2]=swap;
+        return arr;
+    }else{
+        return 'Не вірний індекс';
+    }
+}
+document.write(swapper([1,2,3,4,5],4,0));
+
+// - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+// Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+
+function exchange(sumUAH, currencyValues, exchangeCurrency){
+
+     if (typeof sumUAH==='number' && sumUAH >= 0 && typeof exchangeCurrency==='string'){
+         for (const element of currencyValues) {
+             if ( element.currency===exchangeCurrency){
+                 return sumUAH * element.value;
+             }
+         }
+     }else{
+        return 'не правильні вхідні данні'
+     }
+}
+let currencyValues=[
+    {currency:'USD',value:40},
+    {currency: 'EUR',value: 42},
+    {currency: 'GBP', value: 50}
+]
+console.log(exchange(1000,currencyValues,'EUR'));
