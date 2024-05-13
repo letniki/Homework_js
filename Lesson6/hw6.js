@@ -51,7 +51,6 @@ console.log(arr.map(value => value.toString()));
 // sortNums(nums,'descending') // [21,11,3]
 
 
-// Від меншого до більшого
 let nums = [11,21,3];
 function sortNums(nums, direction = 'up') {
     if (direction === "up") {
