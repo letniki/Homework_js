@@ -53,14 +53,15 @@ console.log(arr.map(value => value.toString()));
 
 // Від меншого до більшого
 let nums = [11,21,3];
-let sort=nums.sort((a,b)=>a-b)
-console.log(sort);
-
-//від більшого до меншого
-
-console.log(nums.sort((a,b)=>b-a));
-
-
+function sortNums(nums, direction = 'up') {
+    if (direction === "up") {
+        return nums.sort((a, b) => a - b);
+    } else if (direction === "down") {
+        return nums.sort((a, b) => b - a);
+    }
+}
+console.log(sortNums(nums,'up'));
+console.log(sortNums(nums,'down'));
 //- є масив
 // let coursesAndDurationArray = [
 //     {title: 'JavaScript Complex', monthDuration: 5},
