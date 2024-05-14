@@ -33,7 +33,8 @@ console.log(strFourth.substring(strFourth.indexOf('d'),strFourth.lastIndexOf('g'
 // let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
 
 let stringThird='Ревуть воли як ясла повні';
-console.log(stringThird.split(' '));
+let stringToArray=(str)=>str.split(' ');
+console.log(stringToArray(stringThird));
 
 
 //- є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
@@ -52,15 +53,15 @@ console.log(arr.map(value => value.toString()));
 
 
 let nums = [11,21,3];
-function sortNums(nums, direction = 'up') {
-    if (direction === "up") {
+function sortNums(nums, direction = 'ascending') {
+    if (direction === "ascending") {
         return nums.sort((a, b) => a - b);
-    } else if (direction === "down") {
+    } else if (direction === "descending") {
         return nums.sort((a, b) => b - a);
     }
 }
-console.log(sortNums(nums,'up'));
-console.log(sortNums(nums,'down'));
+console.log(sortNums(nums,'ascending'));
+console.log(sortNums(nums,'descending'));
 //- є масив
 // let coursesAndDurationArray = [
 //     {title: 'JavaScript Complex', monthDuration: 5},
@@ -107,43 +108,23 @@ console.log(coursesAndDurationArray.filter(value => value.monthDuration > 5));
 console.log(coursesAndDurationArray.map((value, index) => ({id: index + 1, ...value})));
 
 // описати колоду карт (від 6 до туза без джокерів)
-let cards=[
-    {cardSuit:'spade', value: '6', color:'black'},
-    {cardSuit:'spade', value:'7', color:'black'},
-    {cardSuit:'spade', value:'8', color:'black'},
-    {cardSuit:'spade', value:'9', color:'black'},
-    {cardSuit:'spade', value:'10', color:'black'},
-    {cardSuit:'spade', value:'jack', color:'black'},
-    {cardSuit:'spade', value:'queen', color:'black'},
-    {cardSuit:'spade', value:'king', color:'black'},
-    {cardSuit:'spade', value:'ace', color:'black'},
-    {cardSuit:'heart', value:'6', color:'red'},
-    {cardSuit:'heart', value:'7', color:'red'},
-    {cardSuit:'heart', value:'8', color:'red'},
-    {cardSuit:'heart', value:'9', color:'red'},
-    {cardSuit:'heart', value:'10', color:'red'},
-    {cardSuit:'heart', value:'jack', color:'red'},
-    {cardSuit:'heart', value:'queen', color:'red'},
-    {cardSuit:'heart', value:'king', color:'red'},
-    {cardSuit:'heart', value:'ace', color:'red'},
-    {cardSuit:'diamond', value:'6', color:'red'},
-    {cardSuit:'diamond', value:'7', color:'red'},
-    {cardSuit:'diamond', value:'8', color:'red'},
-    {cardSuit:'diamond', value:'9', color:'red'},
-    {cardSuit:'diamond', value:'10', color:'red'},
-    {cardSuit:'diamond', value:'jack', color:'red'},
-    {cardSuit:'diamond', value:'queen', color:'red'},
-    {cardSuit:'diamond', value:'king', color:'red'},
-    {cardSuit:'diamond', value:'ace', color:'red'},
-    {cardSuit:'clubs', value:'6', color:'black'},
-    {cardSuit:'clubs', value:'7', color:'black'},
-    {cardSuit:'clubs', value:'9', color:'black'},
-    {cardSuit:'clubs', value:'8', color:'black'},
-    {cardSuit:'clubs', value:'10', color:'black'},
-    {cardSuit:'clubs', value:'jack', color:'black'},
-    {cardSuit:'clubs', value:'queen', color:'black'},
-    {cardSuit:'clubs', value:'king', color:'black'},
-    {cardSuit:'clubs', value:'ace', color:'black'}];
+const cards=[];
+const cardSuits=['spade','heart','diamond','clubs'];
+const values=['6','7', '8', '9', '10', 'jack', 'queen','king','ace'];
+const colors=['red','black'];
+cardSuits.forEach(cardSuit=>{
+values.forEach(value=>{
+    if(cardSuit==='heart'||cardSuit==='diamond') {
+        const color=colors[0];
+        cards.push({value,cardSuit,color});
+    }else{
+        const color=colors[1];
+        cards.push({value,cardSuit,color});
+    }
+})
+})
+console.log(cards);
+
 
 // - знайти піковий туз
 console.log('піковий туз:')
