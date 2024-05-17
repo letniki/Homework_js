@@ -272,7 +272,6 @@ Array.prototype.myMap=function(callback){
     }
     return arr;
 }
-
 console.log(nums.map(value =>value.toString()));
 console.log(nums.myMap(value=>value.toString()));
 console.log(nums.map((value, index) => ({id: index + 1, numbers:value})));
