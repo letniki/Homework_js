@@ -137,12 +137,6 @@ console.log(Cars[9]);
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 
 
-// class CarSecond extends Car{
-//     constructor(model,name,year,maxSpeed,volume) {
-//         super(model,name,year,maxSpeed,volume);
-//     }
-// }
-
 let carsSecond=[];
 class CarSecond{
     constructor(model,make,year,maxSpeed,volume) {
@@ -177,9 +171,6 @@ class CarSecond{
         }else if(driver.age<18 || !driver.license){
             console.log(`${driver.name} не має водійських прав або молодше 18 років`)
         }
-
-
-        // this.driver=driver;
     }
 }
 let car1=new CarSecond('CX-5',' Mazda',2022,210,2.5);
