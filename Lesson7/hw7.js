@@ -244,7 +244,9 @@ console.log(`туфелька підійшла ${foundCinderella.name} з роз
 //Через Array.prototype. створити власний foreach, filter, map
 Array.prototype.myForEach=function(callback){
     for (const item of this) {
-        callback(item);
+        if(callback(item)) {
+            callback(item);
+        }
     }
 }
 
@@ -268,7 +270,9 @@ console.log(nums.myFilter(num => num % 2 === 0));
 Array.prototype.myMap=function(callback){
     let arr=[]
     for (let i = 0; i < this.length; i++) {
-        arr.push(callback(this[i], i, this));
+       if(callback(this[i])) {
+           arr.push(callback(this[i], i, this));
+       }
     }
     return arr;
 }
