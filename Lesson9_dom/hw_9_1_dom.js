@@ -129,7 +129,7 @@ for(const simpson of simpsons){
     p.innerText=`Info: ${simpson.info}`;
     img.setAttribute('src',simpson.photo);
     img.setAttribute('alt', simpson.name);
-    div.append(h1,h3,img,p);
+    div.append(h1,h3,p,img);
     document.body.appendChild(div);
 }
 
