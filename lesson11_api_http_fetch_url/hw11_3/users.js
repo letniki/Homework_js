@@ -7,7 +7,7 @@ let usersBlock=document.createElement('div');
 
 fetch('http://jsonplaceholder.typicode.com/users')
 .then(value => value.json())
-.then(users=>{
+.then((users)=>{
 
     for(const user of users){
         let userContainer=document.createElement('div');
