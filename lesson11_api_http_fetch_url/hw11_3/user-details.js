@@ -2,9 +2,8 @@ let userId=new URL(location.href).searchParams.get('id');
 console.log(userId);
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
 .then(value=>value.json())
-.then((response)=>{
-    let user=response;
-    // let userBlock=document.createElement('div');
+.then((user)=>{
+
     let ul=document.createElement('ul');
     let id=document.createElement('li');
     let name=document.createElement('li');
