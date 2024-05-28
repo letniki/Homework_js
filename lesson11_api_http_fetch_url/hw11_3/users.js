@@ -7,21 +7,16 @@ let usersBlock=document.createElement('div');
 
 fetch('http://jsonplaceholder.typicode.com/users')
 .then(value => value.json())
-.then(response=>{
-    let users=response;
-    console.log(users);
+.then(users=>{
 
-    for(user of users){
+    for(const user of users){
         let userContainer=document.createElement('div');
         userContainer.innerText=`${user.id} ${user.name}`;
 
-        let userLink=document.createElement('a');
-        userLink.setAttribute('href',`user-details.html?id=${user.id}`);
-        userLink.innerText=' click here for more info';
-
-        userContainer.appendChild(userLink);
+        userContainer.onclick=function() {
+            location.href=`user-details.html?id=${user.id}`;
+        }
         usersBlock.appendChild(userContainer);
     }
-
     document.body.appendChild(usersBlock);
 });

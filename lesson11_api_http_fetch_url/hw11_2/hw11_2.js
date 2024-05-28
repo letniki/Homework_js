@@ -13,7 +13,7 @@ fetch('https://dummyjson.com/recipes')
             let divRecipeDescription=document.createElement('div');
             let divRecipeCookingAdvice=document.createElement('div');
 
-            divRecipeDescription.innerText=`${recipe.id}. Name: ${recipe.name} `
+            divRecipeDescription.innerText=`${recipe.id}. Name: ${recipe.name} `;
             divRecipeCookingAdvice.innerText=`Prepering Time: ${recipe.prepTimeMinutes}min. Cooking time: ${recipe.cookTimeMinutes}min. Servings: ${recipe.servings}. Difficulty: ${recipe.difficulty}. Cuisine: ${recipe.cuisine}. Calories per serving: ${recipe.caloriesPerServing} kcal.`;
 
             let ingredientsUl=document.createElement('ul');
@@ -33,7 +33,7 @@ fetch('https://dummyjson.com/recipes')
                 instructionsOl.appendChild(li);
             }
             let tagsUl=document.createElement('ul');
-            tagsUl.innerText='Tags:'
+            tagsUl.innerText='Tags:';
             let tags=recipe.tags;
             for(const tag of tags){
                 let li=document.createElement('li');
@@ -45,15 +45,15 @@ fetch('https://dummyjson.com/recipes')
             let divInfoAboutRecipe=document.createElement('div');
             divInfoAboutRecipe.innerText=`User Id: ${recipe.userId}. Rating: ${recipe.rating}. Number of reviews: ${recipe.reviewCount}.`;
             let mealTypeUl=document.createElement('ul');
-            mealTypeUl.innerText='Meal types:'
+            mealTypeUl.innerText='Meal types:';
             let mealTypes=recipe.mealType;
-            for(mealType of mealTypes){
+            for( const mealType of mealTypes){
                 let li=document.createElement('li');
                 li.innerText=mealType;
                 mealTypeUl.appendChild(li);
             }
             divRecipeContainer.append(divRecipeDescription, mealTypeUl,divRecipeCookingAdvice,divInfoAboutRecipe, ingredientsUl, instructionsOl, tagsUl, image);
-            recipesBlock.appendChild(divRecipeContainer)
+            recipesBlock.appendChild(divRecipeContainer);
             divRecipeContainer.classList.add('block');
             document.body.appendChild(recipesBlock);
 
